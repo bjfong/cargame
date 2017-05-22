@@ -13,10 +13,8 @@ This has gotten me through some rough times in traffic so I decided to make an i
 Directions:
 
 1) Download the repository.
-2) Install the dependencies (This assumes you have NodeJS installed)
-	--Run "npm install" to install these dependencies.
-3) Run the server with:
-	--"node index.js"
+2) Install the dependencies: "npm install" (This assumes you have NodeJS installed)
+3) Run the server with: "node index.js"
 4) Go to your browser and type in: localhost:3000
 
 Enjoy!
