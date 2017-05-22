@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html ng-app="cargame">
+<meta charset="UTF-8">
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+
+	<title>Cargame</title>
+</head>
+
+<body>
+	<div id="container" ng-controller="cargameController">
+		<div class="row">
+			<div class="col-md-8">
+				<h1>Welcome to Cargame!</h1>
+				<h4>The rules are simple: pick three letters, click Submit and out will come words that contain those letters in the order that you typed them. For example, if you type "BRI", some words will be "brain", "brink", "breathing", etc. Easy enough, try it out!</h4>
+			</div>
+			<div class="col-md-8">
+				<input type="text" maxlength="1" id="letterOne" ng-model="word.one"/>
+				<input type="text" maxlength="1" id="letterTwo" ng-model="word.two"/>
+				<input type="text" maxlength="1" id="letterThree" ng-model="word.three"/>
+				<button id="submitForm" class="btn btn-primary" ng-click="submit()">Login</button>
+				<span id="errorMsg"></span>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-12">
+				<div id="resultsContainer"><span id="results"></span></div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="controller.js"></script>
+</body>
+
+</html>

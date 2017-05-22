@@ -1,0 +1,11 @@
+#errorMsg {
+	color: red;
+}
+
+#container {
+	padding-left: 100px;
+}
+
+#resultsContainer {
+	padding-left: 300px;
+}
