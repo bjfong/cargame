@@ -32,11 +32,11 @@ app.controller('cargameController', ['$scope', '$http', function($scope, $http) 
 
 		$http.post('/getWords', $scope.word).then(function(response) {
 			var results = "";
+
 			if(response.data.list.length === 0) {
 				results = "No results found for the letters: " + word;
-			}
-			else {
-				results += "We found " + response.data.list.length + " results for the letters: " + word+ "<br><br>";
+			} else {
+				results += "We found " + putCommas(response.data.list.length) + " results for the letters: " + word+ "<br><br>";
 			}
 			for(var i = 0; i < response.data.list.length; i++) {
 				results += (i+1) + ". " + response.data.list[i] + "<br>";
@@ -49,3 +49,7 @@ app.controller('cargameController', ['$scope', '$http', function($scope, $http) 
 		});
 	}
 }]);﻿
+
+var putCommas = function(number) {
+	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
