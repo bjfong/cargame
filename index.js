@@ -42,22 +42,46 @@ app.post('/getWords', function(req, res) {
 
 var getAllValidWords = function(letterOne, letterTwo, letterThree) {
 	var validList = [];
+	
+	var foundFirstLetter = false;
+	var foundSecondLetter = false;
+	var foundThirdLetter = false;
+	
 	for(var indexWord = 0; indexWord < dictionaryArray.length; indexWord++) {
-		var word = dictionaryArray[indexWord];
-		for(var indexOne = 0; indexOne < word.length; indexOne++) {
-			if(word[indexOne] === letterOne) {
-				for(var indexTwo = indexOne + 1; indexTwo < word.length; indexTwo++) {
-					if(word[indexTwo] === letterTwo) {
-						for(var indexThree = indexTwo + 1; indexThree < word.length; indexThree++) {
-							if(word[indexThree] === letterThree) {
-								validList.push(word);
-							}
-						}
-					}
+		var word = dictionaryArray[indexWord].toLowerCase();
+
+		for (var i = 0; i < word.length; i++) {
+			if (word[i] === letterOne && !foundFirstLetter) {
+				foundFirstLetter = true;
+				continue;
+			}
+
+			if (word[i] === letterTwo && !foundSecondLetter) {
+				if (foundFirstLetter) {
+					foundSecondLetter = true;
+					continue;
+				}
+			}
+
+			if (word[i] === letterThree && !foundThirdLetter) {
+				if (foundSecondLetter) {
+					foundThirdLetter = true;
+					continue;
 				}
 			}
 		}
+
+		if (foundFirstLetter && foundSecondLetter && foundThirdLetter) {
+			if (validList.indexOf(word) == -1) {
+				validList.push(word);
+            }
+		}
+
+		foundFirstLetter = false;
+		foundSecondLetter = false;
+		foundThirdLetter = false;
 	}
+
 	return validList;
 }
 

@@ -42,6 +42,7 @@ app.controller('cargameController', ['$scope', '$http', function($scope, $http) 
 				results += (i+1) + ". " + response.data.list[i] + "<br>";
 			}
 			$("#results").html(results);
+			$("#elapsedMs").html("This operation took " + response.data.elapsedMs + "ms");
 
 		}, function(error) {
 			console.log("error!!");
